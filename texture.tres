@@ -1,0 +1,11 @@
+[gd_resource type="GradientTexture2D" format=3 uid="uid://njtfwwknd2op"]
+
+[sub_resource type="Gradient" id="Gradient_gkeyb"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[resource]
+gradient = SubResource("Gradient_gkeyb")
+width = 2
+height = 1
+fill = 2

@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://xmgapcm2uywc"]
+
+[ext_resource type="Texture2D" uid="uid://njtfwwknd2op" path="res://texture.tres" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://cbwpko7h305s1" path="res://chip8.gd" id="1_62e2m"]
+[ext_resource type="AudioStream" uid="uid://csv1tmladsejg" path="res://beep.ogg" id="3_qtu10"]
+[ext_resource type="FontFile" uid="uid://di0jtrlv5qayx" path="res://5₧5.ttf" id="4_ee4bf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62e2m"]
+texture = ExtResource("1_0fbet")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_uchyk"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_62e2m")
+
+[node name="Control" type="Control" unique_id=336393571 node_paths=PackedStringArray("screen", "label_registers_location", "opcode_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_62e2m")
+file = "res://roms/outlaw.ch8"
+screen = NodePath("ColorRect/TileMapLayer")
+label_registers_location = NodePath("GridContainer")
+opcode_label = NodePath("Label3")
+hz = 1000
+emulate_old_load_store = false
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=268873781]
+layout_mode = 0
+offset_right = 558.0
+offset_bottom = 337.0
+color = Color(0.097152404, 0.09715242, 0.09715242, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1835364933]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -448.0
+offset_bottom = -288.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+color = Color(0, 0, 0, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ColorRect" unique_id=1012604009]
+texture_filter = 1
+tile_set = SubResource("TileSet_uchyk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=138398941]
+stream = ExtResource("3_qtu10")
+volume_db = -50.0
+
+[node name="Label" type="Label" parent="." unique_id=2077445214]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 260.0
+offset_right = 135.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "Registers"
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1548917997]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.98
+anchor_right = 1.0
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 0
+columns = 8
+
+[node name="Label" type="Label" parent="GridContainer" unique_id=1101864856]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label2" type="Label" parent="GridContainer" unique_id=881178178]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label3" type="Label" parent="GridContainer" unique_id=2049004670]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label4" type="Label" parent="GridContainer" unique_id=217546466]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label5" type="Label" parent="GridContainer" unique_id=37097946]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label6" type="Label" parent="GridContainer" unique_id=120686324]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label7" type="Label" parent="GridContainer" unique_id=1457533347]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label8" type="Label" parent="GridContainer" unique_id=798971125]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label9" type="Label" parent="GridContainer" unique_id=661953446]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label10" type="Label" parent="GridContainer" unique_id=718153355]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label11" type="Label" parent="GridContainer" unique_id=332703468]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label12" type="Label" parent="GridContainer" unique_id=410946806]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label13" type="Label" parent="GridContainer" unique_id=1198786899]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label14" type="Label" parent="GridContainer" unique_id=950175946]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label15" type="Label" parent="GridContainer" unique_id=1541201190]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label16" type="Label" parent="GridContainer" unique_id=950466736]
+custom_minimum_size = Vector2(18, 17)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+
+[node name="Label2" type="Label" parent="." unique_id=655141537]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 260.0
+offset_right = 486.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "Current opcode:"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="." unique_id=1470587988]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 275.0
+offset_right = 485.0
+offset_bottom = 292.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_ee4bf")
+theme_override_font_sizes/font_size = 15
+text = "%X"
+horizontal_alignment = 1
